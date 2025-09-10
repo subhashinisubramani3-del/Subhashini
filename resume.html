@@ -1,0 +1,166 @@
+// Example project data
+const projects = [
+  {
+    title: "Personal Blog",
+    description: "A responsive blog site built with HTML, CSS, and JavaScript.",
+    link: "#"
+  },
+  {
+    title: "Portfolio Website",
+    description: "My portfolio website showcasing my web development projects.",
+    link: "#"
+  },
+  {
+    title: "Todo App",
+    description: "A simple and interactive todo list app.",
+    link: "#"
+  }
+];
+
+window.onload = function() {
+  // Display project cards
+  const projectList = document.getElementById('project-list');
+  projects.forEach(proj => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML = `
+      <h3>${proj.title}</h3>
+      <p>${proj.description}</p>
+      <a href="${proj.link}" target="_blank">View Project</a>
+    `;
+    projectList.appendChild(card);
+  });
+
+  // Simple contact form handler
+  document.getElementById('contact-form').onsubmit = function(e) {
+    e.preventDefault();
+    document.getElementById('form-status').textContent = "Thank you for reaching out!";
+    this.reset();
+  };
+};
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f7f7f7;
+  color: #333;
+}
+
+header {
+  background: #222;
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: #ffd700;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.project-card {
+  background: #eee;
+  padding: 1rem;
+  border-radius: 6px;
+  flex: 1 1 250px;
+  min-width: 220px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input, textarea {
+  padding: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.7rem;
+  background: #222;
+  color: #ffd700;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #444;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: #fff;
+  margin-top: 2rem;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Digital Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Jane Doe</h1>
+    <p>Web Developer | Designer | Programmer</p>
+    <nav>
+      <a href="#about">About Me</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Jane, a passionate web developer with experience in building beautiful and responsive websites. I enjoy turning ideas into reality using code.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-list" id="project-list">
+      <!-- Projects will be loaded here by JavaScript -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+      <p id="form-status"></p>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Jane Doe. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
